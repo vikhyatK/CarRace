@@ -16,6 +16,7 @@ public class Race {
 	private int numberOfTeams;
 	private int lengthOfTrackInKM;
 	private List<FormulaOneDriver> raceFinishingFormulaOneDrivers;
+	private int time;
 
 	public static void main(String[] args) throws Exception {
 		Race race = new Race();
@@ -28,8 +29,9 @@ public class Race {
 
 	private void startRace() throws InterruptedException {
 		while(!formulaOneDrivers.isEmpty()) {
+			time += 2;
 			RaceUtil.calculateDistances(formulaOneDrivers);
-			RaceUtil.gatherRaceFinishers(formulaOneDrivers, raceFinishingFormulaOneDrivers, lengthOfTrackInKM);
+			RaceUtil.gatherRaceFinishers(formulaOneDrivers, raceFinishingFormulaOneDrivers, lengthOfTrackInKM, time);
 			if(formulaOneDrivers.isEmpty()) return;
 			RaceUtil.calculateSpeeds(formulaOneDrivers);
 			Thread.sleep(2000);
@@ -73,6 +75,7 @@ public class Race {
 			System.out.println("Car top speed : " + driver.getRacingCar().getTopSpeed());
 			System.out.println("Car acceleration : " + driver.getRacingCar().getAcceleration());
 			System.out.println("Car current speed : " + driver.getRacingCar().getCurrentSpeed());
+			System.out.println("Car time taken to finish : " + driver.getRacingCar().getTimeTaken());
 			System.out.println("Has car used nitro : " + driver.getRacingCar().isNitroUsed());
 		}
 		System.out.println("--------------------------------------------------------------");

@@ -45,10 +45,11 @@ public class RaceUtil {
 	}
 	
 	public static void gatherRaceFinishers(List<FormulaOneDriver> formulaOneDrivers,
-			List<FormulaOneDriver> raceFinishingFormulaOneDrivers, int lengthOfTrackInKM) {
+			List<FormulaOneDriver> raceFinishingFormulaOneDrivers, int lengthOfTrackInKM, int time) {
 		for(int i = 0; i < formulaOneDrivers.size(); i++) {
 			FormulaOneDriver formulaOneDriver = formulaOneDrivers.get(i);
 			if(formulaOneDriver.getRacingCar().getCurrentDistanceCovered() >= lengthOfTrackInKM) {
+				formulaOneDriver.getRacingCar().setTimeTaken(time);
 				raceFinishingFormulaOneDrivers.add(formulaOneDriver);
 				formulaOneDrivers.remove(i);
 			}
