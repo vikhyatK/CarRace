@@ -1,8 +1,5 @@
 package com.car.race.model.driver;
 
-import java.util.Iterator;
-import java.util.List;
-
 import com.car.race.model.car.RacingCar;
 import com.car.race.util.Constants;
 
