@@ -33,7 +33,6 @@ public class Race {
 			if(formulaOneDrivers.isEmpty()) return;
 			RaceUtil.calculateSpeeds(formulaOneDrivers);
 			Thread.sleep(2000);
-			displayResults(formulaOneDrivers);
 		}
 	}
 
